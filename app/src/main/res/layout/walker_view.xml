@@ -8,6 +8,12 @@
 
 
     <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:layout_centerVertical="true"/>
+
+    <ImageView
         android:id="@+id/gravatar_image"
         android:layout_width="75sp"
         android:layout_height="75sp"

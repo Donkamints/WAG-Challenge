@@ -4,9 +4,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 
@@ -22,7 +26,8 @@ public class WalkerAdapter extends RecyclerView.Adapter<WalkerAdapter.ViewHolder
         protected TextView m_silverBadgesText;
         protected TextView m_goldBadgesText;
         protected TextView m_displayname;
-        protected ProgressBar m_gravatarImage;
+        protected ProgressBar m_progressBar;
+        protected ImageView m_gravatarImage;
 
 
         public ViewHolder(View v) {
@@ -33,7 +38,8 @@ public class WalkerAdapter extends RecyclerView.Adapter<WalkerAdapter.ViewHolder
             this.m_silverBadgesText = (TextView)v.findViewById(R.id.silver_badges);
             this.m_goldBadgesText = (TextView)v.findViewById(R.id.gold_badges);
             this.m_displayname = (TextView)v.findViewById(R.id.display_name);
-            this.m_gravatarImage =  v.findViewById(R.id.gravatar_image);
+            this.m_progressBar =  v.findViewById(R.id.progress_bar);
+            this.m_gravatarImage = v.findViewById(R.id.gravatar_image);
 
         }
     }
@@ -65,8 +71,9 @@ public class WalkerAdapter extends RecyclerView.Adapter<WalkerAdapter.ViewHolder
         holder.m_silverBadgesText.setText(walkerInfo.m_silverBadges);
         holder.m_goldBadgesText.setText(walkerInfo.m_goldBadges);
         holder.m_displayname.setText(walkerInfo.m_displayName);
+        Picasso.get().load(walkerInfo.m_profileImageURL).into(holder.m_gravatarImage);
 
-
+        holder.m_gravatarImage.setImageDrawable(holder.m_gravatarImage.getDrawable());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
