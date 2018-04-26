@@ -1,33 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="100sp"
-    android:id="@+id/layout_container">
+    android:id="@+id/layout_container"
+    android:elevation="1sp"
+    android:outlineProvider="bounds">
 
-    <TextView
-        android:id="@+id/bronze_badges"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        />
 
-    <TextView
-        android:id="@+id/silver_badges"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"/>
+    <ProgressBar
+        android:id="@+id/gravatar_image"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:layout_centerVertical="true"/>
 
-    <TextView
-        android:id="@+id/gold_badges"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"/>
 
     <TextView
         android:id="@+id/display_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12sp"/>
+        android:layout_centerInParent="true"
+        android:textSize="24sp" />
+
+    <View
+        android:id="@+id/padding_view"
+        android:layout_width="20sp"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/gravatar_image"
+        />
 
 
-</LinearLayout>
+
+    <TextView
+        android:id="@+id/bronze_display_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bronze: "
+        android:textSize="12sp"
+        android:layout_toEndOf="@id/padding_view"
+        android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:id="@+id/bronze_badges"
+        android:layout_width="50sp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_toEndOf="@+id/bronze_display_text"
+        android:layout_alignParentBottom="true"
+        />
+
+    <TextView
+        android:id="@+id/silver_display_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="Silver: "
+        android:layout_toEndOf="@+id/bronze_badges"
+        android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:id="@+id/silver_badges"
+        android:layout_width="50sp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_toEndOf="@+id/silver_display_text"
+        android:layout_alignParentBottom="true"
+       />
+
+    <TextView
+        android:id="@+id/gold_display_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="Gold: "
+        android:layout_toEndOf="@+id/silver_badges"
+        android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:id="@+id/gold_badges"
+        android:layout_width="50sp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_toEndOf="@+id/gold_display_text"
+        android:layout_alignParentBottom="true"
+        />
+
+
+
+
+</RelativeLayout>

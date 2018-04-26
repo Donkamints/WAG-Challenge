@@ -4,39 +4,42 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+
+public class WalkerAdapter extends RecyclerView.Adapter<WalkerAdapter.ViewHolder> {
     private ArrayList<WalkerInfo> m_Dataset;
 
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         protected View m_parentView;
-        protected LinearLayout m_container;
+        protected RelativeLayout m_container;
         protected TextView m_bronzeBadgesText;
         protected TextView m_silverBadgesText;
         protected TextView m_goldBadgesText;
-        protected TextView m_display_name;
-        public TextView mTextView;
+        protected TextView m_displayname;
+        protected ProgressBar m_gravatarImage;
+
 
         public ViewHolder(View v) {
             super(v);
-            mTextView = v.findViewById(R.id.text_view);
             this.m_parentView = v;
-            this.m_container = (LinearLayout)v.findViewById(R.id.layout_container);
+            this.m_container = v.findViewById(R.id.layout_container);
             this.m_bronzeBadgesText = (TextView)v.findViewById(R.id.bronze_badges);
             this.m_silverBadgesText = (TextView)v.findViewById(R.id.silver_badges);
             this.m_goldBadgesText = (TextView)v.findViewById(R.id.gold_badges);
-            this.m_display_name = (TextView)v.findViewById(R.id.display_name);
+            this.m_displayname = (TextView)v.findViewById(R.id.display_name);
+            this.m_gravatarImage =  v.findViewById(R.id.gravatar_image);
 
         }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(ArrayList<WalkerInfo> myDataset) {
+    public WalkerAdapter(ArrayList<WalkerInfo> myDataset) {
         m_Dataset = myDataset;
     }
 
@@ -61,7 +64,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.m_bronzeBadgesText.setText(walkerInfo.m_bronzeBadges);
         holder.m_silverBadgesText.setText(walkerInfo.m_silverBadges);
         holder.m_goldBadgesText.setText(walkerInfo.m_goldBadges);
-        holder.m_display_name.setText(walkerInfo.m_displayName);
+        holder.m_displayname.setText(walkerInfo.m_displayName);
+
 
     }
 

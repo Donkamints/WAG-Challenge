@@ -6,9 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -25,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     private RecyclerView.Adapter mAdapter;
-    private String myDataset[];
     private ArrayList<WalkerInfo> m_walkerInfoList;
 
 
@@ -37,22 +33,10 @@ public class MainActivity extends AppCompatActivity {
         //Make sure to create the list or you will crash when you try to add a walker to it
         m_walkerInfoList = new ArrayList<WalkerInfo>();
 
-        //populate the dataset
-        myDataset = new String[]{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
-
         //set up the RecyclerView
         mRecyclerView = findViewById(R.id.recycler_view);
 
         new FetchWalkerInfo().execute();
-
-        //TODO: Set up the layout manager in postExecute. This may cause issues
-        //set up the LayoutManager
-//        mLayoutManager = new LinearLayoutManager(this);
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-//
-//        //set up the adapter and pass it to the RecyclerView
-//        mAdapter = new MyAdapter(m_walkerInfoList);
-//        mRecyclerView.setAdapter(mAdapter);
 
     }
 
@@ -141,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             mRecyclerView.setLayoutManager(mLayoutManager);
 
             //set up the adapter and pass it to the RecyclerView
-            mAdapter = new MyAdapter(m_walkerInfoList);
+            mAdapter = new WalkerAdapter(m_walkerInfoList);
             mRecyclerView.setAdapter(mAdapter);
         }
     }
