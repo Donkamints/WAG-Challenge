@@ -12,6 +12,10 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
+/**
+ * A custom class that makes a opens a connection to the passed in URL
+ */
+
 public class UrlHandler {
 
     private static final String TAG = UrlHandler.class.getSimpleName();
@@ -20,6 +24,11 @@ public class UrlHandler {
 
     }
 
+    /**
+     *
+     * @param theUrl - the URL you wish to connect with
+     * @return          A string to be parsed with JSON
+     */
     public String makeUrlConnection(String theUrl) {
         String urlResponse = null;
 
@@ -41,6 +50,12 @@ public class UrlHandler {
         }
         return urlResponse;
     }
+
+    /**
+     *
+     * @param is - stands for Input Stream. This is the response from the server connection
+     * @return      A String object that is built from the server response
+     */
 
     private String convertStreamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));

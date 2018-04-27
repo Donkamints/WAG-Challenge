@@ -1,9 +1,6 @@
 package com.example.tj.wagchallenge;
 
-import android.content.res.Resources;
-import android.graphics.Typeface;
 import android.support.annotation.NonNull;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +12,13 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.lang.reflect.Type;
+
 import java.util.ArrayList;
 
 
+/**
+ *  Our Adapter class for the RecyclerView
+ */
 public class WalkerAdapter extends RecyclerView.Adapter<WalkerAdapter.ViewHolder> {
 
     private final String TAG = WalkerAdapter.class.getSimpleName();
@@ -27,14 +27,14 @@ public class WalkerAdapter extends RecyclerView.Adapter<WalkerAdapter.ViewHolder
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        protected View m_parentView;
-        protected RelativeLayout m_container;
-        protected TextView m_bronzeBadgesText;
-        protected TextView m_silverBadgesText;
-        protected TextView m_goldBadgesText;
-        protected TextView m_displayName;
-        protected ProgressBar m_progressBar;
-        protected ImageView m_gravatarImage;
+        private View m_parentView;
+        private RelativeLayout m_container;
+        private TextView m_bronzeBadgesText;
+        private TextView m_silverBadgesText;
+        private TextView m_goldBadgesText;
+        private TextView m_displayName;
+        private ProgressBar m_progressBar;
+        private ImageView m_gravatarImage;
 
 
         public ViewHolder(View v) {

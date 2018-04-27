@@ -1,23 +1,23 @@
 package com.example.tj.wagchallenge;
 
 import android.os.AsyncTask;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
+/**
+ * This Serves as the MainActivity within the application
+ */
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * A class that goes out and fetches the profile JSON data  from the server
+     * then builds a WalkerInfo to store it and pushes it to our dataset List.
+     *
+     * This class extends AsyncTask to make sure the download happens in the background
+     * so it doesn't interfere with the UI thread and the user experience.
+     */
     private class FetchWalkerInfo extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -114,9 +121,24 @@ public class MainActivity extends AppCompatActivity {
             mLayoutManager = new LinearLayoutManager(MainActivity.this);
             mRecyclerView.setLayoutManager(mLayoutManager);
 
+            //sort the list before passing it off to the adapter
+            //sort by amount of gold badges
+            Collections.sort(m_walkerInfoList,new GoldWalkerSort());
+
             //set up the adapter and pass it to the RecyclerView
             mAdapter = new WalkerAdapter(m_walkerInfoList);
             mRecyclerView.setAdapter(mAdapter);
+        }
+    }
+
+    /**
+     * A custom sort used to sort our Walkers by the amount of gold badges
+     */
+    public class GoldWalkerSort implements Comparator<WalkerInfo> {
+        @Override
+        public int compare(WalkerInfo o1, WalkerInfo o2) {
+            return Integer.valueOf(o2.getM_goldBadges())
+                    .compareTo(Integer.valueOf(o1.getM_goldBadges()));
         }
     }
 }

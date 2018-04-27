@@ -1,5 +1,10 @@
 package com.example.tj.wagchallenge;
 
+
+/**
+ * A class that stores all the profile data
+ */
+
 public class WalkerInfo {
 
     private final String TAG = WalkerInfo.class.getSimpleName();
