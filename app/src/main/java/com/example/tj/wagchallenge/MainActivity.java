@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Make sure to create the list or you will crash when you try to add a walker to it
-        m_walkerInfoList = new ArrayList<WalkerInfo>();
+        m_walkerInfoList = new ArrayList<>();
 
         //set up the RecyclerView
         mRecyclerView = findViewById(R.id.recycler_view);
