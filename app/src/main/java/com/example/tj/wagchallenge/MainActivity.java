@@ -22,17 +22,13 @@ import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final String TAG = MainActivity.class.getSimpleName();
+    private final static String TAG = MainActivity.class.getSimpleName();
 
     private static RecyclerView mRecyclerView;
     private static RecyclerView.LayoutManager mLayoutManager;
     private static RecyclerView.Adapter mAdapter;
     private static ArrayList<WalkerInfo> m_walkerInfoList;
 
-
-    public ArrayList<WalkerInfo> getM_walkerInfoList() {
-        return m_walkerInfoList;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             String url = "https://api.stackexchange.com/2.2/users?site=stackoverflow";
             String jsonStr = urlHandler.makeUrlConnection(url);
 
-           // Log.wtf(TAG, "Response from stackExchange: " + jsonStr);
+            Log.wtf(TAG, "Response from stackExchange: " + jsonStr);
             if (jsonStr != null) {
 
                 try {
@@ -111,11 +107,11 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 } catch (final JSONException e) {
-                  // Log.wtf(TAG, "Json parsing error: " + e.getMessage());
+                   Log.wtf(TAG, "Json parsing error: " + e.getMessage());
 
                 }
             } else {
-               // Log.wtf(TAG, "Couldn't get json from server.");
+                Log.wtf(TAG, "Couldn't get json from server.");
 
             }
 
