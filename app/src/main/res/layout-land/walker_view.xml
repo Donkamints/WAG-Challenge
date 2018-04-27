@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="100sp"
+    android:layout_height="200sp"
     android:id="@+id/layout_container"
     android:elevation="1sp"
     android:outlineProvider="bounds"
@@ -11,15 +11,15 @@
 
     <ProgressBar
         android:id="@+id/progress_bar"
-        android:layout_width="75sp"
-        android:layout_height="75sp"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
         android:layout_centerVertical="true"
         android:layout_marginStart="12.5sp"/>
 
     <ImageView
         android:id="@+id/gravatar_image"
-        android:layout_width="75sp"
-        android:layout_height="75sp"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
         android:layout_centerVertical="true"
         tools:ignore="ContentDescription"
         android:layout_marginStart="12.5sp"
@@ -35,7 +35,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100sp"
+        android:layout_height="200sp"
         android:layout_toEndOf="@id/padding_view">
 
 
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:textSize="20sp"
+            android:textSize="50sp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
             android:fontFamily="@font/helveticaneue_hv"
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bronze"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:layout_marginStart="25sp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="12.5sp"
@@ -68,7 +68,7 @@
             android:id="@+id/bronze_badges"
             android:layout_width="50sp"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:layout_toEndOf="@+id/bronze_display_text"
             android:layout_alignParentBottom="true"
             android:layout_alignBaseline="@id/bronze_display_text"
@@ -78,9 +78,10 @@
             android:id="@+id/silver_display_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:text="@string/silver"
             android:layout_toEndOf="@+id/bronze_badges"
+            android:layout_marginStart="75sp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="12.5sp"
             />
@@ -89,7 +90,7 @@
             android:id="@+id/silver_badges"
             android:layout_width="50sp"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:layout_toEndOf="@+id/silver_display_text"
             android:layout_alignParentBottom="true"
             android:layout_alignBaseline="@id/silver_display_text"
@@ -99,18 +100,19 @@
             android:id="@+id/gold_display_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:text="@string/gold"
             android:layout_toEndOf="@+id/silver_badges"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="12.5sp"
+            android:layout_marginStart="75sp"
             />
 
         <TextView
             android:id="@+id/gold_badges"
             android:layout_width="50sp"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:layout_toEndOf="@+id/gold_display_text"
             android:layout_alignParentBottom="true"
             android:layout_alignBaseline="@id/gold_display_text"
