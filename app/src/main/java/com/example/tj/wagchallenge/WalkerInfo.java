@@ -17,7 +17,7 @@ public class WalkerInfo {
     private String m_displayName;
 
     public WalkerInfo(String bronzeBadges, String silverBadges, String goldBadges,
-                      String profileImageURL, String displayName){
+                      String profileImageURL, String displayName) {
         super();
         this.m_bronzeBadges = bronzeBadges;
         this.m_silverBadges = silverBadges;

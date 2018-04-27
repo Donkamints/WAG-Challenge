@@ -25,9 +25,8 @@ public class UrlHandler {
     }
 
     /**
-     *
      * @param theUrl - the URL you wish to connect with
-     * @return          A string to be parsed with JSON
+     * @return A string to be parsed with JSON
      */
     public String makeUrlConnection(String theUrl) {
         String urlResponse = null;
@@ -52,9 +51,8 @@ public class UrlHandler {
     }
 
     /**
-     *
      * @param is - stands for Input Stream. This is the response from the server connection
-     * @return      A String object that is built from the server response
+     * @return A String object that is built from the server response
      */
 
     private String convertStreamToString(InputStream is) {

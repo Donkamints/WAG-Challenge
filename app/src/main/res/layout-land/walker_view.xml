@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="150sp"
     android:id="@+id/layout_container"
+    android:layout_width="match_parent"
+    android:layout_height="150sp"
     android:elevation="1sp"
-    android:outlineProvider="bounds"
-    >
+    android:orientation="horizontal"
+    android:outlineProvider="bounds">
 
 
     <ProgressBar
@@ -14,24 +14,22 @@
         android:layout_width="100sp"
         android:layout_height="100sp"
         android:layout_centerVertical="true"
-        android:layout_marginStart="12.5sp"/>
+        android:layout_marginStart="12.5sp" />
 
     <ImageView
         android:id="@+id/gravatar_image"
         android:layout_width="100sp"
         android:layout_height="100sp"
         android:layout_centerVertical="true"
-        tools:ignore="ContentDescription"
         android:layout_marginStart="12.5sp"
-        />
+        tools:ignore="ContentDescription" />
 
 
     <View
         android:id="@+id/padding_view"
         android:layout_width="20sp"
         android:layout_height="match_parent"
-        android:layout_toEndOf="@id/gravatar_image"
-        />
+        android:layout_toEndOf="@id/gravatar_image" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -39,102 +37,86 @@
         android:layout_toEndOf="@id/padding_view">
 
 
-
         <TextView
             android:id="@+id/display_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:textSize="40sp"
-            android:textColor="@color/colorPrimaryDark"
             android:fontFamily="@font/grilledcheese_btn_regular"
-            />
-
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="40sp" />
 
 
         <TextView
             android:id="@+id/bronze_display_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/bronze"
-            android:textSize="18sp"
-            android:layout_marginStart="50sp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="12.5sp"
+            android:layout_marginStart="50sp"
             android:fontFamily="@font/grilledcheese_btn_regular"
+            android:text="@string/bronze"
             android:textColor="@color/colorBronze"
-            />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/bronze_badges"
             android:layout_width="50sp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:layout_toEndOf="@+id/bronze_display_text"
-            android:layout_alignParentBottom="true"
             android:layout_alignBaseline="@id/bronze_display_text"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/bronze_display_text"
             android:fontFamily="@font/grilledcheese_btn_regular"
-            />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/silver_display_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="@string/silver"
-            android:layout_toEndOf="@+id/bronze_badges"
-            android:layout_marginStart="75sp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="12.5sp"
+            android:layout_marginStart="75sp"
+            android:layout_toEndOf="@+id/bronze_badges"
             android:fontFamily="@font/grilledcheese_btn_regular"
+            android:text="@string/silver"
             android:textColor="@color/colorSilver"
-            />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/silver_badges"
             android:layout_width="50sp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:layout_toEndOf="@+id/silver_display_text"
-            android:layout_alignParentBottom="true"
             android:layout_alignBaseline="@id/silver_display_text"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/silver_display_text"
             android:fontFamily="@font/grilledcheese_btn_regular"
-            />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/gold_display_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="@string/gold"
-            android:layout_toEndOf="@+id/silver_badges"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="12.5sp"
             android:layout_marginStart="75sp"
+            android:layout_toEndOf="@+id/silver_badges"
             android:fontFamily="@font/grilledcheese_btn_regular"
+            android:text="@string/gold"
             android:textColor="@color/colorGold"
-            />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/gold_badges"
             android:layout_width="50sp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:layout_toEndOf="@+id/gold_display_text"
-            android:layout_alignParentBottom="true"
             android:layout_alignBaseline="@id/gold_display_text"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/gold_display_text"
             android:fontFamily="@font/grilledcheese_btn_regular"
-            />
-
-
-
+            android:textSize="18sp" />
 
 
     </RelativeLayout>
-
-
-
-
 
 
 </RelativeLayout>

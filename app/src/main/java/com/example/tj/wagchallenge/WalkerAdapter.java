@@ -17,13 +17,12 @@ import java.util.ArrayList;
 
 
 /**
- *  Our Adapter class for the RecyclerView
+ * Our Adapter class for the RecyclerView
  */
 public class WalkerAdapter extends RecyclerView.Adapter<WalkerAdapter.ViewHolder> {
 
     private final String TAG = WalkerAdapter.class.getSimpleName();
     private ArrayList<WalkerInfo> m_Dataset;
-
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -45,10 +44,10 @@ public class WalkerAdapter extends RecyclerView.Adapter<WalkerAdapter.ViewHolder
             this.m_silverBadgesText = v.findViewById(R.id.silver_badges);
             this.m_goldBadgesText = v.findViewById(R.id.gold_badges);
             this.m_displayName = v.findViewById(R.id.display_name);
-            this.m_progressBar =  v.findViewById(R.id.progress_bar);
+            this.m_progressBar = v.findViewById(R.id.progress_bar);
             this.m_gravatarImage = v.findViewById(R.id.gravatar_image);
 
-      }
+        }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
@@ -59,9 +58,9 @@ public class WalkerAdapter extends RecyclerView.Adapter<WalkerAdapter.ViewHolder
     // Create new views (invoked by the layout manager)
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
-                                                   int viewType) {
+                                         int viewType) {
         // create a new view
-       View v =  LayoutInflater.from(parent.getContext())
+        View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.walker_view, parent, false);
 
         ViewHolder vh = new ViewHolder(v);
@@ -73,7 +72,7 @@ public class WalkerAdapter extends RecyclerView.Adapter<WalkerAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-       final WalkerInfo walkerInfo = m_Dataset.get(position);
+        final WalkerInfo walkerInfo = m_Dataset.get(position);
         holder.m_bronzeBadgesText.setText(walkerInfo.getM_bronzeBadges());
         holder.m_silverBadgesText.setText(walkerInfo.getM_silverBadges());
         holder.m_goldBadgesText.setText(walkerInfo.getM_goldBadges());

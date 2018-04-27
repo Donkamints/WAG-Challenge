@@ -1,6 +1,5 @@
 package com.example.tj.wagchallenge;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
 
-
         new FetchWalkerInfo().execute();
 
     }
@@ -54,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * A class that goes out and fetches the profile JSON data  from the server
      * then builds a WalkerInfo to store it and pushes it to our dataset List.
-     *
+     * <p>
      * This class extends AsyncTask to make sure the download happens in the background
      * so it doesn't interfere with the UI thread and the user experience.
      */
@@ -103,11 +101,11 @@ public class MainActivity extends AppCompatActivity {
                                 gold_badges, profileImageURL, displayName);
 
                         //push the newly created walker onto the walkerInfoList
-                       m_walkerInfoList.add(tempWalker);
+                        m_walkerInfoList.add(tempWalker);
 
                     }
                 } catch (final JSONException e) {
-                   Log.wtf(TAG, "Json parsing error: " + e.getMessage());
+                    Log.wtf(TAG, "Json parsing error: " + e.getMessage());
 
                 }
             } else {
@@ -124,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
             //sort the list before passing it off to the adapter
             //sort by amount of gold badges
-            Collections.sort(m_walkerInfoList,new GoldWalkerSort());
+            Collections.sort(m_walkerInfoList, new GoldWalkerSort());
 
             //set up the adapter and pass it to the RecyclerView
             mAdapter = new WalkerAdapter(m_walkerInfoList);
