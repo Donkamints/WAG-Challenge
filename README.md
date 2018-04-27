@@ -10,6 +10,10 @@ but it seemed as I wanted to get other details put into the project I just sette
 something like percentage of overall badges awarded leaning toward gold. Such as the person who recived the most gold badges out of their
 total badge count would likely be the proile with the best performance. This isn't always the case but its a good marker for performance.
 
+The RecyclerView is declared static. The reason for this is when the user goes from landscape to portrait mode they
+would lose the posistion in the RecyclerView. All of the things I attempted with setting a empty adapater in onCreate and calling notifyDataSetChanged() after the data had been loaded cause the same problem. I feel if you were scrolling through a list of something and changed
+from portrait to landscape your scrollposition should be retained.  The compiler was giving me a warning not to declare the RecyclerView static but I felt I had no other option to maintain functionality of the application. In hindsight I think there is a function called scrollToPosition() that you can pass the position to in like a savedInstance state or something when it flips and it will auto scroll you back to where you left off.
+
 The only third party lib I used was Piccaso for the gravatar Image loading and it is available here 
 http://square.github.io/picasso/ 
 
