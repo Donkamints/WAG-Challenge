@@ -22,18 +22,18 @@ import java.util.ArrayList;
 public class WalkerAdapter extends RecyclerView.Adapter<WalkerAdapter.ViewHolder> {
 
     private final String TAG = WalkerAdapter.class.getSimpleName();
-    private ArrayList<WalkerInfo> m_Dataset;
+    private final ArrayList<WalkerInfo> m_Dataset;
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private View m_parentView;
-        private RelativeLayout m_container;
-        private TextView m_bronzeBadgesText;
-        private TextView m_silverBadgesText;
-        private TextView m_goldBadgesText;
-        private TextView m_displayName;
-        private ProgressBar m_progressBar;
-        private ImageView m_gravatarImage;
+        private final View m_parentView;
+        private final RelativeLayout m_container;
+        private final TextView m_bronzeBadgesText;
+        private final TextView m_silverBadgesText;
+        private final TextView m_goldBadgesText;
+        private final TextView m_displayName;
+        private final ProgressBar m_progressBar;
+        private final ImageView m_gravatarImage;
 
 
         public ViewHolder(View v) {
@@ -56,6 +56,7 @@ public class WalkerAdapter extends RecyclerView.Adapter<WalkerAdapter.ViewHolder
     }
 
     // Create new views (invoked by the layout manager)
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
                                          int viewType) {
@@ -63,8 +64,7 @@ public class WalkerAdapter extends RecyclerView.Adapter<WalkerAdapter.ViewHolder
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.walker_view, parent, false);
 
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+        return new ViewHolder(v);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
