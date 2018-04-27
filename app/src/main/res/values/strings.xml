@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WAG Challenge</string>
+    <string name="bronze">Bronze:</string>
+    <string name="silver">Silver:</string>
+    <string name="gold">Gold:</string>
+    <string name= "title_bar"> WAG!</string>
 </resources>

@@ -1,15 +1,16 @@
 package com.example.tj.wagchallenge;
 
 import android.os.AsyncTask;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         //set up the RecyclerView
         mRecyclerView = findViewById(R.id.recycler_view);
 
+
+
         new FetchWalkerInfo().execute();
 
     }
@@ -48,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            Toast.makeText(MainActivity.this, "Downloading JSON data",
-                    Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -95,25 +96,11 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } catch (final JSONException e) {
                     Log.wtf(TAG, "Json parsing error: " + e.getMessage());
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(getApplicationContext(),
-                                    "Json parsing error: " + e.getMessage(),
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    });
+
                 }
             } else {
                 Log.wtf(TAG, "Couldn't get json from server.");
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(),
-                                "Couldn't get json from server. Check LogCat for possible errors!",
-                                Toast.LENGTH_LONG).show();
-                    }
-                });
+
             }
 
             return null;
@@ -123,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-            //TODO: Set up the Recycler View Adapter here
+            //The RecyclerView needs to be set up here otherwise it wont have data to populate
             mLayoutManager = new LinearLayoutManager(MainActivity.this);
             mRecyclerView.setLayoutManager(mLayoutManager);
 
