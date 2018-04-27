@@ -1,5 +1,6 @@
 package com.example.tj.wagchallenge;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,11 +24,15 @@ public class MainActivity extends AppCompatActivity {
 
     private final String TAG = MainActivity.class.getSimpleName();
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private RecyclerView.Adapter mAdapter;
-    private ArrayList<WalkerInfo> m_walkerInfoList;
+    private static RecyclerView mRecyclerView;
+    private static RecyclerView.LayoutManager mLayoutManager;
+    private static RecyclerView.Adapter mAdapter;
+    private static ArrayList<WalkerInfo> m_walkerInfoList;
 
+
+    public ArrayList<WalkerInfo> getM_walkerInfoList() {
+        return m_walkerInfoList;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
         //set up the RecyclerView
         mRecyclerView = findViewById(R.id.recycler_view);
+
+        //The RecyclerView needs to be set up here otherwise it wont have data to populate
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
 
 
@@ -53,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
      * This class extends AsyncTask to make sure the download happens in the background
      * so it doesn't interfere with the UI thread and the user experience.
      */
-    private class FetchWalkerInfo extends AsyncTask<Void, Void, Void> {
+    private static class FetchWalkerInfo extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {
@@ -68,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             String url = "https://api.stackexchange.com/2.2/users?site=stackoverflow";
             String jsonStr = urlHandler.makeUrlConnection(url);
 
-            Log.wtf(TAG, "Response from stackExchange: " + jsonStr);
+           // Log.wtf(TAG, "Response from stackExchange: " + jsonStr);
             if (jsonStr != null) {
 
                 try {
@@ -98,15 +107,15 @@ public class MainActivity extends AppCompatActivity {
                                 gold_badges, profileImageURL, displayName);
 
                         //push the newly created walker onto the walkerInfoList
-                        m_walkerInfoList.add(tempWalker);
+                       m_walkerInfoList.add(tempWalker);
 
                     }
                 } catch (final JSONException e) {
-                    Log.wtf(TAG, "Json parsing error: " + e.getMessage());
+                  // Log.wtf(TAG, "Json parsing error: " + e.getMessage());
 
                 }
             } else {
-                Log.wtf(TAG, "Couldn't get json from server.");
+               // Log.wtf(TAG, "Couldn't get json from server.");
 
             }
 
@@ -116,10 +125,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-
-            //The RecyclerView needs to be set up here otherwise it wont have data to populate
-            mLayoutManager = new LinearLayoutManager(MainActivity.this);
-            mRecyclerView.setLayoutManager(mLayoutManager);
 
             //sort the list before passing it off to the adapter
             //sort by amount of gold badges
@@ -134,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * A custom sort used to sort our Walkers by the amount of gold badges
      */
-    public class GoldWalkerSort implements Comparator<WalkerInfo> {
+    public static class GoldWalkerSort implements Comparator<WalkerInfo> {
         @Override
         public int compare(WalkerInfo o1, WalkerInfo o2) {
             return Integer.valueOf(o2.getM_goldBadges())
